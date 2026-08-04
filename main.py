@@ -66,6 +66,36 @@ with aba1:
     with col3:
         st.metric("Horas médias de IA", round(df["Horas Semanais Usando IA"].mean(),2))
 
+with aba2:
+    st.header("Análises do uso da Inteligência Artificial")
+
+    st.subheader("Variação da nota por nível de uso da IA")
+
+    pouco = df[df["Horas Semanais Usando IA"] <= 3]["Variação da Nota"].mean()
+    medio = df[(df["Horas Semanais Usando IA"] > 3) & (df["Horas Semanais Usando IA"] <= 8)]["Variação da Nota"].mean()
+    alto = df[df["Horas Semanais Usando IA"] > 8]["Variação da Nota"].mean()
+
+    grafico_ia = pd.DataFrame({"Uso da IA":["Pouco uso","Uso médio","Uso alto"],"Variação da nota":[pouco,medio,alto]})
+
+    st.bar_chart(grafico_ia,x="Uso da IA",y="Variação da nota")
+
+
+    st.subheader("Variação da nota por estudo tradicional")
+
+    pouco_estudo = df[df["Horas de Estudo Tradicional"] <= 3]["Variação da Nota"].mean()
+    medio_estudo = df[(df["Horas de Estudo Tradicional"] > 3) & (df["Horas de Estudo Tradicional"] <= 8)]["Variação da Nota"].mean()
+    muito_estudo = df[df["Horas de Estudo Tradicional"] > 8]["Variação da Nota"].mean()
+
+    grafico_estudo = pd.DataFrame({"Estudo tradicional":["Pouco","Médio","Muito"],"Variação da nota":[pouco_estudo,medio_estudo,muito_estudo]})
+
+    st.bar_chart(grafico_estudo,x="Estudo tradicional",y="Variação da nota")
+
+with aba3:
+    st.header("Dados utilizados")
+
+    st.write("Tabela completa do conjunto de dados.")
+
+    st.dataframe(df) 
 
 # =====================================
 # SIDEBAR
