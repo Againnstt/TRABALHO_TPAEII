@@ -387,3 +387,13 @@ st.line_chart(
     x="Uso semanal de IA",
     y="Média da nota final"
 )
+# =====================================
+# ABAS DO APLICATIVO
+# =====================================
+
+aba1, aba2, aba3, aba4 = st.tabs([
+    "🏠 Visão Geral",
+    "📊 Análises",
+    "📋 Dados",
+    "📑 Conclusões"
+])
