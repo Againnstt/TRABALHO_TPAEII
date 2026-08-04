@@ -41,7 +41,7 @@ def carregar_dados():
 
     df["Variação da Nota"] = df["Nota Depois do Semestre"] - df["Nota Antes do Semestre"]
 
-    df["Nível de Habilidade com IA"] = df["Nível de habilidade usando IA"].replace({"Beginner":"Iniciante","Intermediate":"Intermediário","Advanced":"Avançado"})
+    df["Nível de Habilidade com IA"] = df["Nível de Habilidade com IA"].replace({"Beginner":"Iniciante","Intermediate":"Intermediário","Advanced":"Avançado"})
 
     
     return df
