@@ -97,6 +97,15 @@ with aba3:
 
     st.dataframe(df) 
 
+with aba4:
+    st.header("Conclusões")
+
+    st.success("A Inteligência Artificial pode contribuir para o desempenho acadêmico quando utilizada como ferramenta de apoio.")
+
+    st.info("O estudo tradicional continua sendo importante para a consolidação do conhecimento.")
+
+    st.warning("O uso excessivo da IA pode gerar dependência e reduzir a autonomia do estudante.")
+
 # =====================================
 # SIDEBAR
 # =====================================
