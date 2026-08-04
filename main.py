@@ -38,6 +38,13 @@ def carregar_dados():
     "Traditional_Study_Hours":"Horas de Estudo Tradicional",
     "Post_Semester_GPA":"Nota Depois do Semestre",
     "Burnout_Risk_Level":"Risco de Burnout"})
+    df["Área do Curso"] = df["Área do Curso"].replace({"Business":"Administração","STEM":"Ciências Exatas e Tecnologia","Medical":"Medicina","Humanities":"Humanidades"})
+
+df["Ano de Estudo"] = df["Ano de Estudo"].replace({"Freshman":"1º ano","Sophomore":"2º ano","Junior":"3º ano","Senior":"4º ano"})
+
+df["Principal Uso IA"] = df["Principal Uso IA"].replace({"Writing":"Escrita","Research":"Pesquisa","Coding":"Programação","Summarization":"Resumos","Brainstorming":"Geração de ideias"})
+
+df["Risco de Burnout"] = df["Risco de Burnout"].replace({"Low":"Baixo","Medium":"Médio","High":"Alto"})
 
     df["Variação da Nota"] = df["Nota Depois do Semestre"] - df["Nota Antes do Semestre"]
 
