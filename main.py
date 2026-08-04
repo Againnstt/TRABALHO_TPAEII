@@ -17,7 +17,7 @@ st.title("🤖 Impacto da Inteligência Artificial no Desempenho Acadêmico")
 
 st.subheader("Projeto de Programação em Python")
 
-st.write("Autores: Wesley Ferreira, Edgleison Silva, José Carlos)
+st.write("Autores: Wesley Ferreira, Edgleison Silva, José Carlos")
 
 st.write("Universidade Federal da Paraíba - UFPB")
 st.write("Curso: Ciências Econômicas")
