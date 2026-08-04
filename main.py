@@ -198,21 +198,9 @@ media_alto = uso_alto["Variação da Nota"].mean()
 
 # criando tabela para gráfico
 
-grafico_ia = pd.DataFrame({
+grafico_ia = pd.DataFrame({"Nível de uso da IA": ["Pouco uso", "Uso médio", "Uso alto"],
 
-    "Nível de uso da IA": [
-        "Pouco uso",
-        "Uso médio",
-        "Uso alto"
-    ],
-
-    "Variação média da nota": [
-        media_pouco,
-        media_medio,
-        media_alto
-    ]
-
-})
+"Variação média da nota": [media_pouco, media_medio, media_alto]})
 
 
 st.write(grafico_ia)
@@ -221,11 +209,7 @@ st.write(grafico_ia)
 
 # gráfico
 
-st.bar_chart(
-    grafico_ia,
-    x="Nível de uso da IA",
-    y="Variação média da nota"
-)
+st.bar_chart(grafico_ia, x="Nível de uso da IA", y="Variação média da nota")
 # =====================================
 # VARIAÇÃO DA NOTA POR ESTUDO TRADICIONAL
 # =====================================
@@ -235,20 +219,13 @@ st.header("📚 Variação média da nota por tempo de estudo tradicional")
 
 # criando grupos
 
-pouco_estudo = df_filtrado[
-    df_filtrado["Horas de Estudo Tradicional"] <= 3
-]
+pouco_estudo = df_filtrado[df_filtrado["Horas de Estudo Tradicional"] <= 3]
 
 
-estudo_medio = df_filtrado[
-    (df_filtrado["Horas de Estudo Tradicional"] > 3) &
-    (df_filtrado["Horas de Estudo Tradicional"] <= 8)
-]
+estudo_medio = df_filtrado[(df_filtrado["Horas de Estudo Tradicional"] > 3) & (df_filtrado["Horas de Estudo Tradicional"] <= 8)]
 
 
-muito_estudo = df_filtrado[
-    df_filtrado["Horas de Estudo Tradicional"] > 8
-]
+muito_estudo = df_filtrado[df_filtrado["Horas de Estudo Tradicional"] > 8]
 
 
 # médias
@@ -265,29 +242,13 @@ media_muito_estudo = muito_estudo["Variação da Nota"].mean()
 
 grafico_estudo = pd.DataFrame({
 
-    "Grupo de estudo": [
-        "Pouco estudo",
-        "Estudo médio",
-        "Muito estudo"
-    ],
-
-    "Variação média da nota": [
-        media_pouco_estudo,
-        media_estudo_medio,
-        media_muito_estudo
-    ]
-
-})
-
+"Grupo de estudo": ["Pouco estudo","Estudo médio", "Muito estudo"],
+    
+"Variação média da nota": [media_pouco_estudo, media_estudo_medio, media_muito_estudo]})
 
 st.dataframe(grafico_estudo)
 
-
-st.bar_chart(
-    grafico_estudo,
-    x="Grupo de estudo",
-    y="Variação média da nota"
-)
+st.bar_chart(grafico_estudo, x="Grupo de estudo", y="Variação média da nota")
 # =====================================
 # PRINCIPAIS USOS DA IA
 # =====================================
@@ -320,59 +281,27 @@ st.bar_chart(uso_ia)
 
 st.header("📈 Média da nota final por nível de uso da IA")
 
-
 # criando grupos
 
-ate_3_horas = df_filtrado[
-    df_filtrado["Horas Semanais Usando IA"] <= 3
-]
+ate_3_horas = df_filtrado[df_filtrado["Horas Semanais Usando IA"] <= 3]
 
+de_3_a_8_horas = df_filtrado[(df_filtrado["Horas Semanais Usando IA"] > 3) & (df_filtrado["Horas Semanais Usando IA"] <= 8)]
 
-de_3_a_8_horas = df_filtrado[
-    (df_filtrado["Horas Semanais Usando IA"] > 3) &
-    (df_filtrado["Horas Semanais Usando IA"] <= 8)
-]
-
-
-mais_de_8_horas = df_filtrado[
-    df_filtrado["Horas Semanais Usando IA"] > 8
-]
-
-
+mais_de_8_horas = df_filtrado[df_filtrado["Horas Semanais Usando IA"] > 8]
 
 # calculando médias
 
-nota_ate_3 = ate_3_horas[
-    "Nota Depois do Semestre"
-].mean()
+nota_ate_3 = ate_3_horas["Nota Depois do Semestre"].mean()
 
+nota_3_a_8 = de_3_a_8_horas["Nota Depois do Semestre"].mean()
 
-nota_3_a_8 = de_3_a_8_horas[
-    "Nota Depois do Semestre"
-].mean()
-
-
-nota_mais_8 = mais_de_8_horas[
-    "Nota Depois do Semestre"
-].mean()
-
-
+nota_mais_8 = mais_de_8_horas["Nota Depois do Semestre"].mean()
 
 # criando tabela para o gráfico
 
-grafico_nota_ia = pd.DataFrame({
-
-    "Uso semanal de IA": [
-        "Até 3 horas",
-        "3 a 8 horas",
-        "Mais de 8 horas"
-    ],
-
-    "Média da nota final": [nota_ate_3, nota_3_a_8, nota_mais_8]})
-
+grafico_nota_ia = pd.DataFrame({"Uso semanal de IA": ["Até 3 horas","3 a 8 horas","Mais de 8 horas"],"Média da nota final": [nota_ate_3, nota_3_a_8, nota_mais_8]})
 
 st.dataframe(grafico_nota_ia)
-
 
 # gráfico
 
