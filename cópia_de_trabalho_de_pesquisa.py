@@ -16,7 +16,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 # 2. Tradução dos nomes das colunas
-df = pd.read_csv('/content/ai_student_impact_dataset (1).csv')
+df = pd.read_csv('ai_student_impact_dataset.csv')
 df = df.rename(columns={"Student_ID": "ID Estudante",
     "Major_Category": "Area do Curso",
     "Year_of_Study": "Ano de Estudo",
