@@ -368,13 +368,7 @@ grafico_nota_ia = pd.DataFrame({
         "Mais de 8 horas"
     ],
 
-    "Média da nota final": [
-        nota_ate_3,
-        nota_3_a_8,
-        nota_mais_8
-    ]
-
-})
+    "Média da nota final": [nota_ate_3, nota_3_a_8, nota_mais_8]})
 
 
 st.dataframe(grafico_nota_ia)
@@ -382,18 +376,4 @@ st.dataframe(grafico_nota_ia)
 
 # gráfico
 
-st.line_chart(
-    grafico_nota_ia,
-    x="Uso semanal de IA",
-    y="Média da nota final"
-)
-# =====================================
-# ABAS DO APLICATIVO
-# =====================================
-
-aba1, aba2, aba3, aba4 = st.tabs([
-    "🏠 Visão Geral",
-    "📊 Análises",
-    "📋 Dados",
-    "📑 Conclusões"
-])
+st.line_chart(grafico_nota_ia,x="Uso semanal de IA", y="Média da nota final")
