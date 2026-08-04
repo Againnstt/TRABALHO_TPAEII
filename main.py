@@ -288,3 +288,29 @@ st.bar_chart(
     x="Grupo de estudo",
     y="Variação média da nota"
 )
+# =====================================
+# PRINCIPAIS USOS DA IA
+# =====================================
+
+st.header("🤖 Principais usos da Inteligência Artificial")
+
+
+# contando os usos
+
+uso_ia = df_filtrado["Principal Uso IA"].value_counts()
+
+
+# tabela
+
+st.subheader("Quantidade de estudantes por uso da IA")
+
+st.dataframe(uso_ia)
+
+
+
+# gráfico
+
+st.subheader("Distribuição dos usos da IA")
+
+
+st.bar_chart(uso_ia)
