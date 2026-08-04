@@ -26,15 +26,12 @@ pode influenciar o desempenho acadêmico dos estudantes.""")
 # =====================================
 
 @st.cache_data
-def carregar_dados():df = pd.read_csv("ai_student_impact_dataset.csv")
-
-
-@st.cache_data
 def carregar_dados():
 
     df = pd.read_csv("ai_student_impact_dataset.csv")
 
-    df = df.rename(columns={"Student_ID": "ID Estudante",
+    df = df.rename(columns={
+        "Student_ID": "ID Estudante",
         "Major_Category": "Área do Curso",
         "Year_of_Study": "Ano de Estudo",
         "Pre_Semester_GPA": "Nota Antes do Semestre",
@@ -42,10 +39,21 @@ def carregar_dados():
         "Primary_Use_Case": "Principal Uso IA",
         "Traditional_Study_Hours": "Horas de Estudo Tradicional",
         "Post_Semester_GPA": "Nota Depois do Semestre",
-        "Burnout_Risk_Level": "Risco de Burnout"})
+        "Burnout_Risk_Level": "Risco de Burnout"
+    })
+
+
+    df["Variação da Nota"] = (
+        df["Nota Depois do Semestre"]
+        -
+        df["Nota Antes do Semestre"]
+    )
+
 
     return df
 
+
+df = carregar_dados()
 
     # cálculo usado no seu trabalho
 df["Variação da Nota"] = (df["Nota Depois do Semestre"]-df["Nota Antes do Semestre"])return df
