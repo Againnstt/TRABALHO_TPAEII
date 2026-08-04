@@ -33,7 +33,7 @@ def carregar_dados():
 
     df["Área do Curso"] = df["Área do Curso"].replace({"Business":"Administração","STEM":"Ciências Exatas e Tecnologia","Medical":"Medicina","Humanities":"Humanas","Arts":"Artes"})
 
-    df["Ano de Estudo"] = df["Ano de Estudo"].replace({"Freshman":"1º ano","Sophomore":"2º ano","Junior":"3º ano","Senior":"4º ano"})
+    df["Ano de Estudo"] = df["Ano de Estudo"].replace({"Freshman":"1º ano","Sophomore":"2º ano","Junior":"3º ano","Senior":"4º ano","Graduate":"Formado"})
 
     df["Principal Uso IA"] = df["Principal Uso IA"].replace({"Copywriting/Drafting":"Redação/Elaboração de textos","Ideation":"Geração de ideias","Summarizing_Reading":"Resumo de leituras","Debugging/Troubleshooting":"Depuração/Solução de problemas"})
     
