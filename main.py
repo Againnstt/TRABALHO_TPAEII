@@ -29,7 +29,7 @@ pode influenciar o desempenho acadêmico dos estudantes.""")
 def carregar_dados():
     df = pd.read_csv("ai_student_impact_dataset.csv")
 
-    df = df.rename(columns={"Student_ID":"ID Estudante","Major_Category":"Área do Curso","Year_of_Study":"Ano de Estudo","Pre_Semester_GPA":"Nota Antes do Semestre","Weekly_GenAI_Hours":"Horas Semanais Usando IA","Primary_Use_Case":"Principal Uso IA","Traditional_Study_Hours":"Horas de Estudo Tradicional","Post_Semester_GPA":"Nota Depois do Semestre","Burnout_Risk_Level":"Risco de Burnout","Tool_Diversity":"DIversidade de ferramentas","Prompt_Engineering_Skill":"Nível de Habilidade com IA","Paid_Subscription":"Assinatura Paga","Perceived_AI_Dependency":"Dependência percebida de IA"})
+    df = df.rename(columns={"Student_ID":"ID Estudante","Major_Category":"Área do Curso","Year_of_Study":"Ano de Estudo","Pre_Semester_GPA":"Nota Antes do Semestre","Weekly_GenAI_Hours":"Horas Semanais Usando IA","Primary_Use_Case":"Principal Uso IA","Traditional_Study_Hours":"Horas de Estudo Tradicional","Post_Semester_GPA":"Nota Depois do Semestre","Burnout_Risk_Level":"Risco de Burnout","Tool_Diversity":"DIversidade de ferramentas","Prompt_Engineering_Skill":"Nível de Habilidade com IA","Paid_Subscription":"Assinatura Paga","Perceived_AI_Dependency":"Dependência percebida de IA","Institutional_Policy":"Política Institucional"})
 
     df["Área do Curso"] = df["Área do Curso"].replace({"Business":"Administração","STEM":"Ciências Exatas e Tecnologia","Medical":"Medicina","Humanities":"Humanas","Arts":"Artes"})
 
@@ -43,6 +43,7 @@ def carregar_dados():
 
     df["Nível de Habilidade com IA"] = df["Nível de Habilidade com IA"].replace({"Beginner":"Iniciante","Intermediate":"Intermediário","Advanced":"Avançado"})
 
+    df["Política Institucional"] = df["Política Institucional"].replace({"Allowed_With_Citation":"Permitido com citação","Strict_Ban":"Proibição rigorosa"})
     
     return df
 
