@@ -58,7 +58,6 @@ df = carregar_dados()
     # cálculo usado no seu trabalho
 df["Variação da Nota"] = (df["Nota Depois do Semestre"]-df["Nota Antes do Semestre"])
 
-
 return df
 
 
