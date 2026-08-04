@@ -39,11 +39,11 @@ def carregar_dados():
     
     df["Risco de Burnout"] = df["Risco de Burnout"].replace({"Low":"Baixo","Medium":"Médio","High":"Alto"})
 
-    df["Variação da Nota"] = df["Nota Depois do Semestre"] - df["Nota Antes do Semestre"]
-
     df["Nível de Habilidade com IA"] = df["Nível de Habilidade com IA"].replace({"Beginner":"Iniciante","Intermediate":"Intermediário","Advanced":"Avançado"})
 
     df["Política Institucional"] = df["Política Institucional"].replace({"Allowed_With_Citation":"Permitido com citação","Strict_Ban":"Proibição rigorosa","Actively_Encouraged":"Ativamente incentivado"})
+    
+    df["Variação da Nota"] = df["Nota Depois do Semestre"] - df["Nota Antes do Semestre"]
     
     return df
 
