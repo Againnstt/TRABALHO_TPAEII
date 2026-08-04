@@ -314,3 +314,76 @@ st.subheader("Distribuição dos usos da IA")
 
 
 st.bar_chart(uso_ia)
+# =====================================
+# MÉDIA DA NOTA POR USO DE IA
+# =====================================
+
+st.header("📈 Média da nota final por nível de uso da IA")
+
+
+# criando grupos
+
+ate_3_horas = df_filtrado[
+    df_filtrado["Horas Semanais Usando IA"] <= 3
+]
+
+
+de_3_a_8_horas = df_filtrado[
+    (df_filtrado["Horas Semanais Usando IA"] > 3) &
+    (df_filtrado["Horas Semanais Usando IA"] <= 8)
+]
+
+
+mais_de_8_horas = df_filtrado[
+    df_filtrado["Horas Semanais Usando IA"] > 8
+]
+
+
+
+# calculando médias
+
+nota_ate_3 = ate_3_horas[
+    "Nota Depois do Semestre"
+].mean()
+
+
+nota_3_a_8 = de_3_a_8_horas[
+    "Nota Depois do Semestre"
+].mean()
+
+
+nota_mais_8 = mais_de_8_horas[
+    "Nota Depois do Semestre"
+].mean()
+
+
+
+# criando tabela para o gráfico
+
+grafico_nota_ia = pd.DataFrame({
+
+    "Uso semanal de IA": [
+        "Até 3 horas",
+        "3 a 8 horas",
+        "Mais de 8 horas"
+    ],
+
+    "Média da nota final": [
+        nota_ate_3,
+        nota_3_a_8,
+        nota_mais_8
+    ]
+
+})
+
+
+st.dataframe(grafico_nota_ia)
+
+
+# gráfico
+
+st.line_chart(
+    grafico_nota_ia,
+    x="Uso semanal de IA",
+    y="Média da nota final"
+)
