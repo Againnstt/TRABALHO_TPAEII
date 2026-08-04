@@ -96,12 +96,9 @@ col1, col2, col3 = st.columns(3)
 
 with col1:st.metric("Número de estudantes",len(df_filtrado))
 
-
 with col2:st.metric("Média da nota final", round(df_filtrado["Nota Depois do Semestre"].mean(), 2))
 
-with col3:
-
-st.metric("Horas médias de IA",round(df_filtrado["Horas Semanais Usando IA"].mean(),2))
+with col3:st.metric("Horas médias de IA",round(df_filtrado["Horas Semanais Usando IA"].mean(),2))
 
 
 
