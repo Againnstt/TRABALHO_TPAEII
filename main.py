@@ -35,7 +35,7 @@ def carregar_dados():
 
     df["Ano de Estudo"] = df["Ano de Estudo"].replace({"Freshman":"1º ano","Sophomore":"2º ano","Junior":"3º ano","Senior":"4º ano","Graduate":"Formado"})
 
-    df["Principal Uso IA"] = df["Principal Uso IA"].replace({"Copywriting/Drafting":"Redação/Elaboração de textos","Ideation":"Geração de ideias","Summarizing_Reading":"Resumo de leituras","Debugging/Troubleshooting":"Depuração/Solução de problemas"})
+    df["Principal Uso IA"] = df["Principal Uso IA"].replace({"Copywriting/Drafting":"Redação/Elaboração de textos","Ideation":"Geração de ideias","Summarizing_Reading":"Resumo de leituras","Debugging/Troubleshooting":"Depuração/Solução de problemas","Direct_Answer_Generation":"Respostas Diretas"})
     
     df["Risco de Burnout"] = df["Risco de Burnout"].replace({"Low":"Baixo","Medium":"Médio","High":"Alto"})
 
