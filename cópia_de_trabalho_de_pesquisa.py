@@ -12,6 +12,7 @@ Tema: Impacto do uso de Inteligência Artificial nos estudantes
 """
 
 # 1. importação
+import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
 
