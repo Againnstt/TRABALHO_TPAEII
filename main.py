@@ -39,8 +39,7 @@ df["Principal Uso IA"] = df["Principal Uso IA"].replace({"Writing":"Escrita","Re
 
 df["Risco de Burnout"] = df["Risco de Burnout"].replace({"Low":"Baixo","Medium":"Médio","High":"Alto"})
 
-
-    df["Variação da Nota"] = df["Nota Depois do Semestre"] - df["Nota Antes do Semestre"]
+df["Variação da Nota"] = df["Nota Depois do Semestre"] - df["Nota Antes do Semestre"]
 
     return df
 
