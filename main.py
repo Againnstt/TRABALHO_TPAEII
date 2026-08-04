@@ -226,3 +226,65 @@ st.bar_chart(
     x="Nível de uso da IA",
     y="Variação média da nota"
 )
+# =====================================
+# VARIAÇÃO DA NOTA POR ESTUDO TRADICIONAL
+# =====================================
+
+st.header("📚 Variação média da nota por tempo de estudo tradicional")
+
+
+# criando grupos
+
+pouco_estudo = df_filtrado[
+    df_filtrado["Horas de Estudo Tradicional"] <= 3
+]
+
+
+estudo_medio = df_filtrado[
+    (df_filtrado["Horas de Estudo Tradicional"] > 3) &
+    (df_filtrado["Horas de Estudo Tradicional"] <= 8)
+]
+
+
+muito_estudo = df_filtrado[
+    df_filtrado["Horas de Estudo Tradicional"] > 8
+]
+
+
+# médias
+
+media_pouco_estudo = pouco_estudo["Variação da Nota"].mean()
+
+media_estudo_medio = estudo_medio["Variação da Nota"].mean()
+
+media_muito_estudo = muito_estudo["Variação da Nota"].mean()
+
+
+
+# tabela para gráfico
+
+grafico_estudo = pd.DataFrame({
+
+    "Grupo de estudo": [
+        "Pouco estudo",
+        "Estudo médio",
+        "Muito estudo"
+    ],
+
+    "Variação média da nota": [
+        media_pouco_estudo,
+        media_estudo_medio,
+        media_muito_estudo
+    ]
+
+})
+
+
+st.dataframe(grafico_estudo)
+
+
+st.bar_chart(
+    grafico_estudo,
+    x="Grupo de estudo",
+    y="Variação média da nota"
+)
