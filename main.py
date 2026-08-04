@@ -160,3 +160,69 @@ st.write(
 st.dataframe(
     df_filtrado.head(10)
 )
+
+# =====================================
+# VARIAÇÃO DA NOTA POR USO DE IA
+# =====================================
+
+st.header("📈 Variação média da nota por uso de IA")
+
+
+# criando grupos
+
+pouco_uso = df_filtrado[
+    df_filtrado["Horas Semanais Usando IA"] <= 3
+]
+
+
+uso_medio = df_filtrado[
+    (df_filtrado["Horas Semanais Usando IA"] > 3) &
+    (df_filtrado["Horas Semanais Usando IA"] <= 8)
+]
+
+
+uso_alto = df_filtrado[
+    df_filtrado["Horas Semanais Usando IA"] > 8
+]
+
+
+# calculando médias
+
+media_pouco = pouco_uso["Variação da Nota"].mean()
+
+media_medio = uso_medio["Variação da Nota"].mean()
+
+media_alto = uso_alto["Variação da Nota"].mean()
+
+
+
+# criando tabela para gráfico
+
+grafico_ia = pd.DataFrame({
+
+    "Nível de uso da IA": [
+        "Pouco uso",
+        "Uso médio",
+        "Uso alto"
+    ],
+
+    "Variação média da nota": [
+        media_pouco,
+        media_medio,
+        media_alto
+    ]
+
+})
+
+
+st.write(grafico_ia)
+
+
+
+# gráfico
+
+st.bar_chart(
+    grafico_ia,
+    x="Nível de uso da IA",
+    y="Variação média da nota"
+)
