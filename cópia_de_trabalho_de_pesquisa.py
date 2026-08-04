@@ -49,7 +49,7 @@ Principais_colunas = ["Area do Curso", "Ano de Estudo", "Horas Semanais Usando I
 print(Principais_colunas)
 
 df_resumido = df[Principais_colunas]
-display (df_resumido.head(5))
+st.write(df_resumido.head(5))
 
 df["Variacao_da_Nota"] = df["Nota Depois do Semestre"] - df["Nota Antes do Semestre"]
 pouco_uso_de_ia = df[df["Horas Semanais Usando IA"] <= 3]
