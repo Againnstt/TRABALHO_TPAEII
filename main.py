@@ -26,6 +26,15 @@ pode influenciar o desempenho acadêmico dos estudantes.""")
 # =====================================
 
 @st.cache_data
+
+df["Área do Curso"] = df["Área do Curso"].replace({"Business":"Administração","STEM":"Ciências Exatas e Tecnologia","Medical":"Medicina","Humanities":"Humanidades"})
+
+df["Ano de Estudo"] = df["Ano de Estudo"].replace({"Freshman":"1º ano","Sophomore":"2º ano","Junior":"3º ano","Senior":"4º ano"})
+
+df["Principal Uso IA"] = df["Principal Uso IA"].replace({"Writing":"Escrita","Research":"Pesquisa","Coding":"Programação","Summarization":"Resumos","Brainstorming":"Geração de ideias"})
+
+df["Risco de Burnout"] = df["Risco de Burnout"].replace({"Low":"Baixo","Medium":"Médio","High":"Alto"})
+
 def carregar_dados():
     df = pd.read_csv("ai_student_impact_dataset.csv")
 
