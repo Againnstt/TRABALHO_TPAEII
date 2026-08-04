@@ -46,6 +46,16 @@ def carregar_dados():
 
 df = carregar_dados()
 
+# =====================================
+# CRIANDO ABAS
+# =====================================
+
+aba1, aba2, aba3, aba4 = st.tabs([
+    "🏠 Visão Geral",
+    "📊 Análises",
+    "📋 Dados",
+    "📑 Conclusões"])
+
 
 
 # =====================================
